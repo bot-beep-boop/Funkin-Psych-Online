@@ -2,10 +2,9 @@
 // THIS FILE HAS BEEN GENERATED AUTOMATICALLY
 // DO NOT CHANGE IT MANUALLY UNLESS YOU KNOW WHAT YOU'RE DOING
 // 
-// GENERATED USING @colyseus/schema 2.0.26
+// GENERATED USING @colyseus/schema 2.0.27
 // 
 
-package online.schema;
 
 import io.colyseus.serializer.schema.Schema;
 import io.colyseus.serializer.schema.types.*;
@@ -39,6 +38,9 @@ class RoomState extends Schema {
 	public var isStarted: Bool = false;
 
 	@:type("boolean")
+	public var hasBotPlay: Bool = false;
+
+	@:type("boolean")
 	public var swagSides: Bool = false;
 
 	@:type("boolean")
@@ -51,5 +53,6 @@ class RoomState extends Schema {
 	public var gameplaySettings: MapSchema<String> = new MapSchema<String>();
 
 	@:type("boolean")
-	public var permitModifiers:Bool = false;
+	public var permitModifiers: Bool = false;
+
 }
