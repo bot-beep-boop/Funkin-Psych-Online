@@ -46,6 +46,8 @@ class Room extends MusicBeatState {
 	var settingsIcon:FlxSprite;
 	var chatIconBg:FlxSprite;
 	var chatIcon:FlxSprite;
+	var botplayConsentBg:FlxSprite;
+	var botplayConsentIcon:FlxSprite;
 
 	var itemTip:FlxText;
 	var itemTipBg:FlxSprite;
@@ -297,6 +299,25 @@ class Room extends MusicBeatState {
 		playIcon.y += playIconBg.height / 2 - playIcon.height / 2;
 		playIcon.ID = 2;
 		items.add(playIcon);
+
+		botplayConsentBg = new FlxSprite();
+		botplayConsentBg.makeGraphic(100, 100, 0x5D000000);
+		botplayConsentBg.updateHitbox();
+		botplayConsentBg.y = playIconBg.y;
+		botplayConsentBg.x = playIconBg.x - botplayConsentBg.width - 20;
+		groupHUD.add(botplayConsentBg);
+
+		botplayConsentIcon = new FlxSprite(botplayConsentBg.x, botplayConsentBg.y);
+		botplayConsentIcon.frames = Paths.getSparrowAtlas('online_botplay');
+		botplayConsentIcon.animation.addByPrefix('idle', "botplay", 24);
+		botplayConsentIcon.animation.play('idle');
+		botplayConsentIcon.updateHitbox();
+		botplayConsentIcon.x += botplayConsentBg.width / 2 - botplayConsentIcon.width / 2;
+		botplayConsentIcon.y += botplayConsentBg.height / 2 - botplayConsentIcon.height / 2;
+		botplayConsentIcon.ID = 4;
+		items.add(botplayConsentIcon);
+
+
 
 		roomCode = new FlxText(0, 0, 0, "Room Code: ????");
 		roomCode.setFormat("VCR OSD Mono", 18, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
